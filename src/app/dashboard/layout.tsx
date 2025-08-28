@@ -4,7 +4,6 @@ import { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import { UserSidebar } from '@/components/dashboard/user/user-sidebar';
 import { AdminSidebar } from '@/components/dashboard/admin/admin-sidebar';
-import { DashboardHeader } from '@/components/dashboard/header';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -19,7 +18,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader isAdmin={isAdminPage} />
       <div className="flex">
         {/* Показываем разные сайдбары в зависимости от типа страницы */}
         {isAdminPage ? <AdminSidebar /> : <UserSidebar />}
