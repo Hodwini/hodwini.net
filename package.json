@@ -1,0 +1,17 @@
+{
+  "name": "hodwiniweb",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "bun run --filter=web dev",
+    "dev:api": "bun run --filter=api dev",
+    "build": "bun run --filter='*' build",
+    "docker:up": "docker-compose up --build",
+    "docker:down": "docker-compose down"
+  }
+}
