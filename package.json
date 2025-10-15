@@ -1,17 +1,15 @@
 {
-  "name": "hodwiniweb",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "name": "elysia-example",
+  "version": "1.0.50",
   "scripts": {
-    "dev:web": "bun run --filter=web dev",
-    "dev:api": "bun run --filter=api dev",
-    "build": "bun run --filter='*' build",
-    "docker:up": "docker-compose up --build",
-    "docker:down": "docker-compose down"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
 }
