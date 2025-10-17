@@ -1,0 +1,40 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        - BUN_VERSION=1.2.22
+    platform: linux/amd64
+    environment:
+      - PORT=3000
+      - WEB_ROOT=/app/web
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:3000/api/hello"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+  dev:
+    image: ghcr.io/oven-sh/bun:1.2.22
+    pull_policy: always
+    platform: linux/amd64
+    working_dir: /app
+    command: sh -c "bun install && bun run --watch src/index.ts"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - WEB_ROOT=/app/src/web
+    volumes:
+      - ./:/app
+      - bun-cache:/root/.bun
+    ports:
+      - "3000:3000"
+    profiles: ["dev"]
+
+volumes:
+  bun-cache:
