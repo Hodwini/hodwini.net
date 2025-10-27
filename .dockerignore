@@ -1,0 +1,21 @@
+# Dependencies / builds
+node_modules
+dist
+dist-ssr
+.parcel-cache
+
+# Env / secrets
+.env
+.env.*
+*.local
+
+# Tooling noise
+.git
+.gitignore
+.DS_Store
+*.log
+logs
+.vscode
+.idea
+coverage
+tmp
