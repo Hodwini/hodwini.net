@@ -1,0 +1,11 @@
+services:
+  frontend:
+    container_name: hodwini-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "4173:4173"
+    restart: unless-stopped
